@@ -1,23 +1,36 @@
 class ProductsController < ApplicationController
-def index
+	def index 
+		@products = Product.all
+	end
 
+	def create
+		@products = Product.new()
+		if @product.save
+			redirect_to @product, notice: "Post Created Succesfully"
+		else
+		render new	
+       end
+	end
 
-def index
-end
+	# def new
+	# 	@product = Product.new
+	# end
 
-def show
-end
+	# def show
+	# 	@product = Product.find(params[:id])
+	# end
 
-def new
-end
+	# def update
+	# 	@products = Product.update(:id)
+	# end
 
-def create
-end
+	# def edit
+	# 	@products = Product.edit(:id)
+	# end
 
-def edit
-end
-
-def destroy
-end
+	# def destroy
+	# 	@products = Product.destroy(:id)
+	# end
 
 end 
+

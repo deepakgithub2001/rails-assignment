@@ -12,7 +12,7 @@ gem "puma", ">= 5.0"
 gem "importmap-rails"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+# Hotwire's modest JavaScript framework [https://stimlus.hotwired.dev]
 gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -63,3 +63,9 @@ group :test do
 end
 
 gem 'devise'
+
+gem 'paper_trail'
+
+gem 'redis'
+gem 'sidekiq'
+gem 'sidekiq-cron'

@@ -1,0 +1,14 @@
+<h1>Products</h1>
+
+<%= link_to "New Product", products_new_path %>
+
+<ul>
+   <% @products.each do |product| %>
+   <%end %>
+</ul>  
+
+<% PaperTrail::Version.where(item_type: "User").each do |version|%>
+   <% if version.reify  %>
+      <h6>Email <%= version.reify.email %></h6>
+   <% end %>
+<% end %>

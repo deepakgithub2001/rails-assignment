@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  require 'sidekiq/cron/web'
+  mount Sidekiq::Web, at: '/sidekiq'
   devise_for :users
-  root "home#index"
+  root "products#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,6 +14,26 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Defines the root path route ducts#index"
+  # root "products#index"
+  get "/products", to: "products#index"
+
+  get "/products/new", to: "products#new"
+  post "/products", to: "products#create"
+
+  get "/products/:id", to: "products#show"
+
+  get "/products/:id/edit", to: "products#edit"
+  patch "/products/:id", to: "products#update"
+  put "/products/:id", to: "products#update"
+
+  delete "/products/:id", to: "products#destroy"
+
+  namespace :api do
+    namespace :v1 do
+      # resources :products
+    end
+  end
+
 end
+
